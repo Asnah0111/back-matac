@@ -95,6 +95,7 @@ __decorate([
         required: false
     }),
     (0, class_validator_1.IsNumber)(),
+    (0, class_validator_1.IsOptional)(),
     __metadata("design:type", Number)
 ], CreateAlignmentDto.prototype, "id_terrain", void 0);
 //# sourceMappingURL=create-alignment.dto.js.map

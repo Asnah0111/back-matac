@@ -36,7 +36,7 @@ __decorate([
 ], Alignment.prototype, "id_align", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({ description: 'ID du mandataire (citoyen)', example: 'CIT001' }),
-    (0, typeorm_1.Column)({ type: 'varchar', length: 100 }),
+    (0, typeorm_1.Column)({ type: 'varchar', length: 100, unique: true }),
     __metadata("design:type", String)
 ], Alignment.prototype, "id_mandataire", void 0);
 __decorate([

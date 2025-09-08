@@ -15,6 +15,7 @@ const app_service_1 = require("./app.service");
 const alignment_module_1 = require("./alignment/alignment.module");
 const piece_jointe_module_1 = require("./piece-jointe/piece-jointe.module");
 const terrain_module_1 = require("./terrain/terrain.module");
+const construction_module_1 = require("./construction/construction.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -37,6 +38,7 @@ exports.AppModule = AppModule = __decorate([
             alignment_module_1.AlignmentModule,
             piece_jointe_module_1.PieceJointeModule,
             terrain_module_1.TerrainModule,
+            construction_module_1.ConstructionModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

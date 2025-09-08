@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne, JoinColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne, JoinColumn, CreateDateColumn, UpdateDateColumn, Unique } from 'typeorm';
 import { PieceJointe } from '../../piece-jointe/entities/piece-jointe.entity';
 import { Terrain } from '../../terrain/entities/terrain.entity';
 import { ApiProperty } from '@nestjs/swagger';
@@ -10,7 +10,7 @@ export class Alignment {
   id_align: number;
 
   @ApiProperty({ description: 'ID du mandataire (citoyen)', example: 'CIT001' })
-  @Column({ type: 'varchar', length: 100 })
+  @Column({ type: 'varchar', length: 100, unique: true })
   id_mandataire: string;
 
   @ApiProperty({ description: 'Statut propriétaire', example: 'Propriétaire' })

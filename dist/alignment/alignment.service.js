@@ -23,6 +23,12 @@ let AlignmentService = class AlignmentService {
         this.alignmentRepository = alignmentRepository;
     }
     async create(createAlignmentDto) {
+        const existingAlignment = await this.alignmentRepository.findOne({
+            where: { id_mandataire: createAlignmentDto.id_mandataire }
+        });
+        if (existingAlignment) {
+            throw new common_1.ConflictException(`Un alignement avec l'id_mandataire '${createAlignmentDto.id_mandataire}' existe déjà`);
+        }
         const alignment = this.alignmentRepository.create(createAlignmentDto);
         return await this.alignmentRepository.save(alignment);
     }

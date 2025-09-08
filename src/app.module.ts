@@ -6,6 +6,7 @@ import { AppService } from './app.service';
 import { AlignmentModule } from './alignment/alignment.module';
 import { PieceJointeModule } from './piece-jointe/piece-jointe.module';
 import { TerrainModule } from './terrain/terrain.module';
+import { ConstructionModule } from './construction/construction.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { TerrainModule } from './terrain/terrain.module';
     AlignmentModule,
     PieceJointeModule,
     TerrainModule,
+    ConstructionModule,
   ],
   controllers: [AppController],
   providers: [AppService],

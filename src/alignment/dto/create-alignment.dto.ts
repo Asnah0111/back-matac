@@ -1,4 +1,4 @@
-import { IsString, IsNotEmpty, Length, IsNumber } from 'class-validator';
+import { IsString, IsNotEmpty, Length, IsNumber, IsOptional } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateAlignmentDto {
@@ -68,5 +68,6 @@ export class CreateAlignmentDto {
     required: false
   })
   @IsNumber()
+  @IsOptional()
   id_terrain?: number;
 }

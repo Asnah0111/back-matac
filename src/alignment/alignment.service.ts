@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, ConflictException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateAlignmentDto } from './dto/create-alignment.dto';
@@ -13,6 +13,15 @@ export class AlignmentService {
   ) {}
 
   async create(createAlignmentDto: CreateAlignmentDto): Promise<Alignment> {
+    // Vérifier si l'id_mandataire existe déjà
+    const existingAlignment = await this.alignmentRepository.findOne({
+      where: { id_mandataire: createAlignmentDto.id_mandataire }
+    });
+
+    if (existingAlignment) {
+      throw new ConflictException(`Un alignement avec l'id_mandataire '${createAlignmentDto.id_mandataire}' existe déjà`);
+    }
+
     const alignment = this.alignmentRepository.create(createAlignmentDto);
     return await this.alignmentRepository.save(alignment);
   }

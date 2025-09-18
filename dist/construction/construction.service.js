@@ -29,7 +29,8 @@ let ConstructionService = class ConstructionService {
     async findAll() {
         return await this.constructionRepository.find({
             relations: {
-                alignment: true
+                alignment: true,
+                terrain: true
             },
             order: {
                 created_at: 'DESC'
@@ -40,7 +41,8 @@ let ConstructionService = class ConstructionService {
         const construction = await this.constructionRepository.findOne({
             where: { id_const: id },
             relations: {
-                alignment: true
+                alignment: true,
+                terrain: true
             }
         });
         if (!construction) {

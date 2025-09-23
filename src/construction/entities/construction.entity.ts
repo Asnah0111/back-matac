@@ -30,6 +30,5 @@ export class Construction {
 
   @ApiProperty({ type: () => Alignment, description: 'Alignement associé' })
   @ManyToOne(() => Alignment, { eager: true })
-  @JoinColumn({ name: 'id_mandataire', referencedColumnName: 'id_mandataire' })
   alignment: Alignment;
 }

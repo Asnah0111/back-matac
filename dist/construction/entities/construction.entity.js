@@ -56,7 +56,6 @@ __decorate([
 __decorate([
     (0, swagger_1.ApiProperty)({ type: () => alignment_entity_1.Alignment, description: 'Alignement associé' }),
     (0, typeorm_1.ManyToOne)(() => alignment_entity_1.Alignment, { eager: true }),
-    (0, typeorm_1.JoinColumn)({ name: 'id_mandataire', referencedColumnName: 'id_mandataire' }),
     __metadata("design:type", alignment_entity_1.Alignment)
 ], Construction.prototype, "alignment", void 0);
 exports.Construction = Construction = __decorate([

@@ -27,6 +27,15 @@ let Alignment = class Alignment {
     updated_at;
     pieces_jointes;
     terrain;
+    raison_social;
+    num_carte_stat;
+    nom_mandataire;
+    prenom_mandataire;
+    cin_passeport;
+    adresse;
+    fonction;
+    age;
+    nationalite;
 };
 exports.Alignment = Alignment;
 __decorate([
@@ -36,7 +45,7 @@ __decorate([
 ], Alignment.prototype, "id_align", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({ description: 'ID du mandataire (citoyen)', example: 'CIT001' }),
-    (0, typeorm_1.Column)({ type: 'varchar', length: 100, unique: true }),
+    (0, typeorm_1.Column)({ type: 'varchar', length: 100 }),
     __metadata("design:type", String)
 ], Alignment.prototype, "id_mandataire", void 0);
 __decorate([
@@ -90,6 +99,51 @@ __decorate([
     (0, typeorm_1.JoinColumn)({ name: 'id_terrain' }),
     __metadata("design:type", terrain_entity_1.Terrain)
 ], Alignment.prototype, "terrain", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)({ description: 'Raison sociale', example: 'sociologue' }),
+    (0, typeorm_1.Column)({ type: 'varchar', length: 100, nullable: true }),
+    __metadata("design:type", String)
+], Alignment.prototype, "raison_social", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)({ description: 'Numéro de carte statistique', example: '123456789' }),
+    (0, typeorm_1.Column)({ type: 'varchar', length: 100, nullable: true }),
+    __metadata("design:type", String)
+], Alignment.prototype, "num_carte_stat", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)({ description: 'Nom du mandataire', example: 'Moana' }),
+    (0, typeorm_1.Column)({ type: 'varchar', length: 100 }),
+    __metadata("design:type", String)
+], Alignment.prototype, "nom_mandataire", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)({ description: 'Prénom du mandataire', example: 'Faly' }),
+    (0, typeorm_1.Column)({ type: 'varchar', length: 100 }),
+    __metadata("design:type", String)
+], Alignment.prototype, "prenom_mandataire", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)({ description: 'CIN ou passeport', example: '101251007007' }),
+    (0, typeorm_1.Column)({ type: 'varchar', length: 100 }),
+    __metadata("design:type", String)
+], Alignment.prototype, "cin_passeport", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)({ description: 'Adresse mandataire', example: 'Mahasoabe' }),
+    (0, typeorm_1.Column)({ type: 'varchar', length: 100, nullable: true }),
+    __metadata("design:type", String)
+], Alignment.prototype, "adresse", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)({ description: 'Fonction du mandataire', example: 'Fonctionnaire' }),
+    (0, typeorm_1.Column)({ type: 'varchar', length: 100, nullable: true }),
+    __metadata("design:type", String)
+], Alignment.prototype, "fonction", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)({ description: 'Âge du mandataire', example: '23' }),
+    (0, typeorm_1.Column)({ type: 'varchar', length: 3, nullable: true }),
+    __metadata("design:type", String)
+], Alignment.prototype, "age", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)({ description: 'Nationalité du mandataire', example: 'Malagasy' }),
+    (0, typeorm_1.Column)({ type: 'varchar', length: 50, nullable: true }),
+    __metadata("design:type", String)
+], Alignment.prototype, "nationalite", void 0);
 exports.Alignment = Alignment = __decorate([
     (0, typeorm_1.Entity)('alignement')
 ], Alignment);

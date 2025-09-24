@@ -38,7 +38,7 @@ __decorate([
 ], Terrain.prototype, "id_terrain", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({ description: 'Numéro du titre foncier', example: 'TIT001' }),
-    (0, typeorm_1.Column)({ type: 'varchar', length: 100 }),
+    (0, typeorm_1.Column)({ type: 'varchar', length: 100, }),
     __metadata("design:type", String)
 ], Terrain.prototype, "num_titre", void 0);
 __decorate([

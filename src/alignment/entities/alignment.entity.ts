@@ -89,4 +89,8 @@ export class Alignment {
   @ApiProperty({ description: 'Nationalité du mandataire', example: 'Malagasy' })
   @Column({ type: 'varchar', length: 50, nullable: true })
   nationalite: string;
+
+   @ApiProperty({ description: 'Status alignement', example: 'Malagasy' })
+  @Column({ type: 'varchar', length: 50, nullable: true })
+  status: string;
 }

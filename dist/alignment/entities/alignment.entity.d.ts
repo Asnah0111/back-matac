@@ -22,4 +22,5 @@ export declare class Alignment {
     fonction: string;
     age: string;
     nationalite: string;
+    status: string;
 }

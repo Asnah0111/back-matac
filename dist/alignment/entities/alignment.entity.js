@@ -36,6 +36,7 @@ let Alignment = class Alignment {
     fonction;
     age;
     nationalite;
+    status;
 };
 exports.Alignment = Alignment;
 __decorate([
@@ -144,6 +145,11 @@ __decorate([
     (0, typeorm_1.Column)({ type: 'varchar', length: 50, nullable: true }),
     __metadata("design:type", String)
 ], Alignment.prototype, "nationalite", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)({ description: 'Status alignement', example: 'Malagasy' }),
+    (0, typeorm_1.Column)({ type: 'varchar', length: 50, nullable: true }),
+    __metadata("design:type", String)
+], Alignment.prototype, "status", void 0);
 exports.Alignment = Alignment = __decorate([
     (0, typeorm_1.Entity)('alignement')
 ], Alignment);

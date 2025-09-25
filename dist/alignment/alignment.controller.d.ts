@@ -6,7 +6,7 @@ export declare class AlignmentController {
     private readonly alignmentService;
     constructor(alignmentService: AlignmentService);
     create(createAlignmentDto: CreateAlignmentDto): Promise<Alignment>;
-    findAll(mandataire?: string): Promise<Alignment[]>;
+    findAll(demandeurId?: string): Promise<Alignment[]>;
     findOne(id: number): Promise<Alignment>;
     update(id: number, updateAlignmentDto: UpdateAlignmentDto): Promise<Alignment>;
     remove(id: number): Promise<{

@@ -13,7 +13,7 @@ exports.CreateAlignmentDto = void 0;
 const class_validator_1 = require("class-validator");
 const swagger_1 = require("@nestjs/swagger");
 class CreateAlignmentDto {
-    id_mandataire;
+    id_demandeur;
     status_proprietaire;
     qualite_demandeur;
     nif;
@@ -24,15 +24,15 @@ class CreateAlignmentDto {
 exports.CreateAlignmentDto = CreateAlignmentDto;
 __decorate([
     (0, swagger_1.ApiProperty)({
-        example: 'CIT001',
-        description: 'ID du mandataire (citoyen)',
+        example: 'DEM001',
+        description: 'ID du demandeur',
         maxLength: 100
     }),
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.Length)(1, 100),
     __metadata("design:type", String)
-], CreateAlignmentDto.prototype, "id_mandataire", void 0);
+], CreateAlignmentDto.prototype, "id_demandeur", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({
         example: 'Propriétaire',

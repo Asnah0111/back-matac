@@ -27,9 +27,9 @@ let AlignmentController = class AlignmentController {
     async create(createAlignmentDto) {
         return this.alignmentService.create(createAlignmentDto);
     }
-    async findAll(mandataire) {
-        if (mandataire) {
-            return this.alignmentService.findByMandataire(mandataire);
+    async findAll(demandeurId) {
+        if (demandeurId) {
+            return this.alignmentService.findByDemandeur(demandeurId);
         }
         return this.alignmentService.findAll();
     }
@@ -63,13 +63,13 @@ __decorate([
 __decorate([
     (0, common_1.Get)(),
     (0, swagger_1.ApiOperation)({ summary: 'Récupérer tous les alignements' }),
-    (0, swagger_1.ApiQuery)({ name: 'mandataire', required: false, description: 'Filtrer par ID mandataire' }),
+    (0, swagger_1.ApiQuery)({ name: 'demandeur', required: false, description: 'Filtrer par ID demandeur' }),
     (0, swagger_1.ApiResponse)({
         status: 200,
         description: 'Liste des alignements',
         type: [alignment_entity_1.Alignment]
     }),
-    __param(0, (0, common_1.Query)('mandataire')),
+    __param(0, (0, common_1.Query)('demandeur')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)

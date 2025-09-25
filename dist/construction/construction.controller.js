@@ -82,9 +82,9 @@ let ConstructionController = class ConstructionController {
         const constructionData = { ...createConstructionDto, ...filePaths };
         return this.constructionService.create(constructionData);
     }
-    async findAll(mandataire) {
-        if (mandataire) {
-            return this.constructionService.findByMandataire(mandataire);
+    async findAll(alignement) {
+        if (alignement) {
+            return this.constructionService.findByAlignment(alignement);
         }
         return this.constructionService.findAll();
     }
@@ -169,15 +169,15 @@ __decorate([
 __decorate([
     (0, common_1.Get)(),
     (0, swagger_1.ApiOperation)({ summary: 'Récupérer toutes les constructions' }),
-    (0, swagger_1.ApiQuery)({ name: 'mandataire', required: false, description: 'Filtrer par ID mandataire' }),
+    (0, swagger_1.ApiQuery)({ name: 'alignement', required: false, description: 'Filtrer par ID alignement' }),
     (0, swagger_1.ApiResponse)({
         status: 200,
         description: 'Liste des constructions',
         type: [construction_entity_1.Construction]
     }),
-    __param(0, (0, common_1.Query)('mandataire')),
+    __param(0, (0, common_1.Query)('alignement')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
 ], ConstructionController.prototype, "findAll", null);
 __decorate([

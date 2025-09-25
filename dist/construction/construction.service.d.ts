@@ -1,14 +1,16 @@
 import { Repository } from 'typeorm';
+import { Construction } from './entities/construction.entity';
 import { CreateConstructionDto } from './dto/create-construction.dto';
 import { UpdateConstructionDto } from './dto/update-construction.dto';
-import { Construction } from './entities/construction.entity';
+import { Alignment } from '../alignment/entities/alignment.entity';
 export declare class ConstructionService {
     private readonly constructionRepository;
-    constructor(constructionRepository: Repository<Construction>);
+    private readonly alignmentRepository;
+    constructor(constructionRepository: Repository<Construction>, alignmentRepository: Repository<Alignment>);
     create(createConstructionDto: CreateConstructionDto): Promise<Construction>;
     findAll(): Promise<Construction[]>;
     findOne(id: number): Promise<Construction>;
     update(id: number, updateConstructionDto: UpdateConstructionDto): Promise<Construction>;
     remove(id: number): Promise<void>;
-    findByMandataire(idMandataire: string): Promise<Construction[]>;
+    findByAlignment(idAlign: number): Promise<Construction[]>;
 }

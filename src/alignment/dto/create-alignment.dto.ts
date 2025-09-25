@@ -3,14 +3,14 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateAlignmentDto {
   @ApiProperty({ 
-    example: 'CIT001', 
-    description: 'ID du mandataire (citoyen)',
+    example: 'DEM001', 
+    description: 'ID du demandeur',
     maxLength: 100
   })
   @IsString()
   @IsNotEmpty()
   @Length(1, 100)
-  id_mandataire: string;
+  id_demandeur: string;
 
   @ApiProperty({ 
     example: 'Propriétaire', 

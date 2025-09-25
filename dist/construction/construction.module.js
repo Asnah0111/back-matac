@@ -12,12 +12,17 @@ const typeorm_1 = require("@nestjs/typeorm");
 const construction_service_1 = require("./construction.service");
 const construction_controller_1 = require("./construction.controller");
 const construction_entity_1 = require("./entities/construction.entity");
+const alignment_entity_1 = require("../alignment/entities/alignment.entity");
+const alignment_module_1 = require("../alignment/alignment.module");
 let ConstructionModule = class ConstructionModule {
 };
 exports.ConstructionModule = ConstructionModule;
 exports.ConstructionModule = ConstructionModule = __decorate([
     (0, common_1.Module)({
-        imports: [typeorm_1.TypeOrmModule.forFeature([construction_entity_1.Construction])],
+        imports: [
+            typeorm_1.TypeOrmModule.forFeature([construction_entity_1.Construction, alignment_entity_1.Alignment]),
+            alignment_module_1.AlignmentModule
+        ],
         controllers: [construction_controller_1.ConstructionController],
         providers: [construction_service_1.ConstructionService],
         exports: [construction_service_1.ConstructionService],

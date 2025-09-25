@@ -109,15 +109,15 @@ export class ConstructionController {
 
   @Get()
   @ApiOperation({ summary: 'Récupérer toutes les constructions' })
-  @ApiQuery({ name: 'mandataire', required: false, description: 'Filtrer par ID mandataire' })
+  @ApiQuery({ name: 'alignement', required: false, description: 'Filtrer par ID alignement' })
   @ApiResponse({ 
     status: 200, 
     description: 'Liste des constructions', 
     type: [Construction] 
   })
-  async findAll(@Query('mandataire') mandataire?: string): Promise<Construction[]> {
-    if (mandataire) {
-      return this.constructionService.findByMandataire(mandataire);
+  async findAll(@Query('alignement') alignement?: number): Promise<Construction[]> {
+    if (alignement) {
+      return this.constructionService.findByAlignment(alignement);
     }
     return this.constructionService.findAll();
   }

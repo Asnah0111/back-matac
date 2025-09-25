@@ -14,7 +14,7 @@ export declare class ConstructionController {
         planMasse?: Express.Multer.File[];
         planFacade?: Express.Multer.File[];
     }): Promise<Construction>;
-    findAll(mandataire?: string): Promise<Construction[]>;
+    findAll(alignement?: number): Promise<Construction[]>;
     findOne(id: number): Promise<Construction>;
     update(id: number, updateConstructionDto: UpdateConstructionDto, files: {
         planTerrain?: Express.Multer.File[];

@@ -78,7 +78,7 @@ export declare class Construction {
     planLimiteTerrain: string[];
     planMasse: string[];
     planFacade: string[];
-    id_mandataire: string;
+    id_align: number;
     created_at: Date;
     updated_at: Date;
     alignment: Alignment;

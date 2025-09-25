@@ -16,7 +16,7 @@ const terrain_entity_1 = require("../../terrain/entities/terrain.entity");
 const swagger_1 = require("@nestjs/swagger");
 let Alignment = class Alignment {
     id_align;
-    id_mandataire;
+    id_demandeur;
     status_proprietaire;
     qualite_demandeur;
     nif;
@@ -35,10 +35,10 @@ __decorate([
     __metadata("design:type", Number)
 ], Alignment.prototype, "id_align", void 0);
 __decorate([
-    (0, swagger_1.ApiProperty)({ description: 'ID du mandataire (citoyen)', example: 'CIT001' }),
+    (0, swagger_1.ApiProperty)({ description: 'ID du demandeur', example: 'DEM001' }),
     (0, typeorm_1.Column)({ type: 'varchar', length: 100, unique: true }),
     __metadata("design:type", String)
-], Alignment.prototype, "id_mandataire", void 0);
+], Alignment.prototype, "id_demandeur", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({ description: 'Statut propriétaire', example: 'Propriétaire' }),
     (0, typeorm_1.Column)({ type: 'varchar', length: 100 }),

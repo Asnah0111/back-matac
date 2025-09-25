@@ -121,7 +121,7 @@ class CreateConstructionDto {
     planLimiteTerrain;
     planMasse;
     planFacade;
-    id_mandataire;
+    id_align;
     id_terrain;
 }
 exports.CreateConstructionDto = CreateConstructionDto;
@@ -752,15 +752,13 @@ __decorate([
 ], CreateConstructionDto.prototype, "planFacade", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({
-        example: 'CIT001',
-        description: 'ID du mandataire (référence vers alignement)',
-        maxLength: 100
+        example: 1,
+        description: 'ID de l\'alignement associé',
     }),
-    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNumber)(),
     (0, class_validator_1.IsNotEmpty)(),
-    (0, class_validator_1.Length)(1, 100),
-    __metadata("design:type", String)
-], CreateConstructionDto.prototype, "id_mandataire", void 0);
+    __metadata("design:type", Number)
+], CreateConstructionDto.prototype, "id_align", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({
         example: 1,

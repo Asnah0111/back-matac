@@ -42,15 +42,15 @@ import {
   
     @Get()
     @ApiOperation({ summary: 'Récupérer tous les alignements' })
-    @ApiQuery({ name: 'mandataire', required: false, description: 'Filtrer par ID mandataire' })
+    @ApiQuery({ name: 'demandeur', required: false, description: 'Filtrer par ID demandeur' })
     @ApiResponse({ 
       status: 200, 
       description: 'Liste des alignements', 
       type: [Alignment] 
     })
-    async findAll(@Query('mandataire') mandataire?: string): Promise<Alignment[]> {
-      if (mandataire) {
-        return this.alignmentService.findByMandataire(mandataire);
+    async findAll(@Query('demandeur') demandeurId?: string): Promise<Alignment[]> {
+      if (demandeurId) {
+        return this.alignmentService.findByDemandeur(demandeurId);
       }
       return this.alignmentService.findAll();
     }

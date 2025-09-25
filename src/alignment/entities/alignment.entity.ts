@@ -9,9 +9,9 @@ export class Alignment {
   @PrimaryGeneratedColumn()
   id_align: number;
 
-  @ApiProperty({ description: 'ID du mandataire (citoyen)', example: 'CIT001' })
+  @ApiProperty({ description: 'ID du demandeur', example: 'DEM001' })
   @Column({ type: 'varchar', length: 100, unique: true })
-  id_mandataire: string;
+  id_demandeur: string;
 
   @ApiProperty({ description: 'Statut propriétaire', example: 'Propriétaire' })
   @Column({ type: 'varchar', length: 100 })

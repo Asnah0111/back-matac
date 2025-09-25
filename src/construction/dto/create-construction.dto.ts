@@ -597,14 +597,12 @@ export class CreateConstructionDto {
   planFacade?: string[];
 
   @ApiProperty({ 
-    example: 'CIT001', 
-    description: 'ID du mandataire (référence vers alignement)',
-    maxLength: 100
+    example: 1, 
+    description: 'ID de l\'alignement associé',
   })
-  @IsString()
+  @IsNumber()
   @IsNotEmpty()
-  @Length(1, 100)
-  id_mandataire: string;
+  id_align: number;
 
   @ApiProperty({ 
     example: 1, 

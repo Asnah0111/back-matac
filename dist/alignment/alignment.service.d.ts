@@ -10,5 +10,5 @@ export declare class AlignmentService {
     findOne(id: number): Promise<Alignment>;
     update(id: number, updateAlignmentDto: UpdateAlignmentDto): Promise<Alignment>;
     remove(id: number): Promise<void>;
-    findByMandataire(idMandataire: string): Promise<Alignment[]>;
+    findByDemandeur(idDemandeur: string): Promise<Alignment[]>;
 }

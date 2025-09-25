@@ -17,12 +17,21 @@ const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const construction_entity_1 = require("./entities/construction.entity");
+const alignment_entity_1 = require("../alignment/entities/alignment.entity");
 let ConstructionService = class ConstructionService {
     constructionRepository;
-    constructor(constructionRepository) {
+    alignmentRepository;
+    constructor(constructionRepository, alignmentRepository) {
         this.constructionRepository = constructionRepository;
+        this.alignmentRepository = alignmentRepository;
     }
     async create(createConstructionDto) {
+        const alignment = await this.alignmentRepository.findOne({
+            where: { id_align: createConstructionDto.id_align }
+        });
+        if (!alignment) {
+            throw new common_1.NotFoundException(`Aucun alignement trouvé avec l'ID ${createConstructionDto.id_align}`);
+        }
         const construction = this.constructionRepository.create(createConstructionDto);
         return await this.constructionRepository.save(construction);
     }
@@ -31,9 +40,6 @@ let ConstructionService = class ConstructionService {
             relations: {
                 alignment: true,
                 terrain: true
-            },
-            order: {
-                created_at: 'DESC'
             }
         });
     }
@@ -59,11 +65,12 @@ let ConstructionService = class ConstructionService {
         const construction = await this.findOne(id);
         await this.constructionRepository.remove(construction);
     }
-    async findByMandataire(idMandataire) {
+    async findByAlignment(idAlign) {
         return await this.constructionRepository.find({
-            where: { id_mandataire: idMandataire },
+            where: { id_align: idAlign },
             relations: {
-                alignment: true
+                alignment: true,
+                terrain: true
             }
         });
     }
@@ -72,6 +79,8 @@ exports.ConstructionService = ConstructionService;
 exports.ConstructionService = ConstructionService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, typeorm_1.InjectRepository)(construction_entity_1.Construction)),
-    __metadata("design:paramtypes", [typeorm_2.Repository])
+    __param(1, (0, typeorm_1.InjectRepository)(alignment_entity_1.Alignment)),
+    __metadata("design:paramtypes", [typeorm_2.Repository,
+        typeorm_2.Repository])
 ], ConstructionService);
 //# sourceMappingURL=construction.service.js.map

@@ -24,23 +24,34 @@ let AlignmentService = class AlignmentService {
     }
     async create(createAlignmentDto) {
         const existingAlignment = await this.alignmentRepository.findOne({
-            where: { id_mandataire: createAlignmentDto.id_mandataire }
+            where: { id_demandeur: createAlignmentDto.id_demandeur }
         });
         if (existingAlignment) {
-            throw new common_1.ConflictException(`Un alignement avec l'id_mandataire '${createAlignmentDto.id_mandataire}' existe déjà`);
+            throw new common_1.ConflictException(`Un alignement avec l'id_demandeur '${createAlignmentDto.id_demandeur}' existe déjà`);
         }
         const alignment = this.alignmentRepository.create(createAlignmentDto);
-        return await this.alignmentRepository.save(alignment);
+        const saved = await this.alignmentRepository.save(alignment);
+        const fullAlignment = await this.alignmentRepository.findOne({
+            where: { id_align: saved.id_align },
+            relations: {
+                terrain: true,
+                pieces_jointes: true,
+            },
+        });
+        if (!fullAlignment) {
+            throw new common_1.NotFoundException('Impossible de récupérer l’alignement après création');
+        }
+        return fullAlignment;
     }
     async findAll() {
         return await this.alignmentRepository.find({
             relations: {
                 pieces_jointes: true,
-                terrain: true
+                terrain: true,
             },
             order: {
-                created_at: 'DESC'
-            }
+                created_at: 'DESC',
+            },
         });
     }
     async findOne(id) {
@@ -48,8 +59,8 @@ let AlignmentService = class AlignmentService {
             where: { id_align: id },
             relations: {
                 pieces_jointes: true,
-                terrain: true
-            }
+                terrain: true,
+            },
         });
         if (!alignment) {
             throw new common_1.NotFoundException(`Alignement avec l'ID ${id} non trouvé`);
@@ -59,19 +70,30 @@ let AlignmentService = class AlignmentService {
     async update(id, updateAlignmentDto) {
         const alignment = await this.findOne(id);
         Object.assign(alignment, updateAlignmentDto);
-        return await this.alignmentRepository.save(alignment);
+        const saved = await this.alignmentRepository.save(alignment);
+        const fullAlignment = await this.alignmentRepository.findOne({
+            where: { id_align: saved.id_align },
+            relations: {
+                terrain: true,
+                pieces_jointes: true,
+            },
+        });
+        if (!fullAlignment) {
+            throw new common_1.NotFoundException('Impossible de récupérer l’alignement après mise à jour');
+        }
+        return fullAlignment;
     }
     async remove(id) {
         const alignment = await this.findOne(id);
         await this.alignmentRepository.remove(alignment);
     }
-    async findByMandataire(idMandataire) {
+    async findByDemandeur(idDemandeur) {
         return await this.alignmentRepository.find({
-            where: { id_mandataire: idMandataire },
+            where: { id_demandeur: idDemandeur },
             relations: {
                 pieces_jointes: true,
-                terrain: true
-            }
+                terrain: true,
+            },
         });
     }
 };

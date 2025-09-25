@@ -311,9 +311,9 @@ export class Construction {
   @Column({ type: 'jsonb', nullable: true })
   planFacade: string[];
 
-  @ApiProperty({ description: 'ID du mandataire (référence vers alignement)', example: 'CIT001' })
-  @Column({ type: 'varchar', length: 100 })
-  id_mandataire: string;
+  @ApiProperty({ description: 'ID de l\'alignement associé', example: 1 })
+  @Column({ type: 'int' })
+  id_align: number;
 
   @ApiProperty({ description: 'Date de création' })
   @CreateDateColumn()
@@ -325,7 +325,7 @@ export class Construction {
 
   @ApiProperty({ type: () => Alignment, description: 'Alignement associé' })
   @ManyToOne(() => Alignment, { eager: true })
-  @JoinColumn({ name: 'id_mandataire', referencedColumnName: 'id_mandataire' })
+  @JoinColumn({ name: 'id_align', referencedColumnName: 'id_align' })
   alignment: Alignment;
 
   @ApiProperty({ description: 'ID du terrain associé', example: 1 })

@@ -2,7 +2,7 @@ import { PieceJointe } from '../../piece-jointe/entities/piece-jointe.entity';
 import { Terrain } from '../../terrain/entities/terrain.entity';
 export declare class Alignment {
     id_align: number;
-    id_mandataire: string;
+    id_demandeur: string;
     status_proprietaire: string;
     qualite_demandeur: string;
     nif: string;

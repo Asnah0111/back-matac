@@ -1,5 +1,5 @@
 export declare class CreateAlignmentDto {
-    id_mandataire: string;
+    id_demandeur: string;
     status_proprietaire: string;
     qualite_demandeur: string;
     nif: string;

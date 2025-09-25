@@ -75,6 +75,6 @@ export declare class CreateConstructionDto {
     planLimiteTerrain?: string[];
     planMasse?: string[];
     planFacade?: string[];
-    id_mandataire: string;
+    id_align: number;
     id_terrain?: number;
 }

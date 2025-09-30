@@ -13,7 +13,7 @@ export class AlignmentService {
   ) {}
 
   async create(createAlignmentDto: CreateAlignmentDto): Promise<Alignment> {
-    // Vérifier si id_mandataire existe déjà
+    // Vérifier si l'id_mandataire existe déjà
     const existingAlignment = await this.alignmentRepository.findOne({
       where: { id_mandataire: createAlignmentDto.id_mandataire }
     });

@@ -10,11 +10,11 @@ export class Alignment {
   id_align: number;
 
   @ApiProperty({ description: 'ID du mandataire (citoyen)', example: 'CIT001' })
-  @Column({ type: 'varchar', length: 100, unique: true })
+  @Column({ type: 'varchar', length: 100})
   id_mandataire: string;
 
-  @ApiProperty({ description: 'Statut propriétaire', example: 'Propriétaire' })
-  @Column({ type: 'varchar', length: 100 })
+  @ApiProperty({ description: 'Statut propriétaire', example: 'Propriétaire' }) 
+  @Column({ type: 'varchar', length: 100})
   status_proprietaire: string;
 
   @ApiProperty({ description: 'Qualité du demandeur', example: 'Demandeur principal' })
@@ -37,7 +37,7 @@ export class Alignment {
   @Column({ type: 'int', nullable: true })
   id_terrain?: number;
 
-  @ApiProperty({ description: 'Date de création' })
+  @ApiProperty({ description: 'Date de création' }) 
   @CreateDateColumn()
   created_at: Date;
 
@@ -53,4 +53,40 @@ export class Alignment {
   @ManyToOne(() => Terrain)
   @JoinColumn({ name: 'id_terrain' })
   terrain: Terrain;
+
+  @ApiProperty({ description: 'Raison sociale', example: 'sociologue' })
+  @Column({ type: 'varchar', length: 100, nullable: true })
+  raison_social: string;
+
+  @ApiProperty({ description: 'Numéro de carte statistique', example: '123456789' })
+  @Column({ type: 'varchar', length: 100, nullable: true })
+  num_carte_stat: string;
+
+  @ApiProperty({ description: 'Nom du mandataire', example: 'Moana' })
+  @Column({ type: 'varchar', length: 100 })
+  nom_demandaire: string;
+
+  @ApiProperty({ description: 'Prénom du mandataire', example: 'Faly' })
+  @Column({ type: 'varchar', length: 100 })
+  prenom_mandataire: string;
+
+  @ApiProperty({ description: 'CIN ou passeport', example: '101251007007' })
+  @Column({ type: 'varchar', length: 100 })
+  cin_passeport_demandaire: string;
+
+  @ApiProperty({ description: 'Adresse mandataire', example: 'Mahasoabe' })
+  @Column({ type: 'varchar', length: 100, nullable: true })
+  adresse_demandaire: string;
+
+  @ApiProperty({ description: 'Fonction du mandataire', example: 'Fonctionnaire' })
+  @Column({ type: 'varchar', length: 100, nullable: true })
+  fonction_demandaire: string;
+
+  @ApiProperty({ description: 'Nationalité du mandataire', example: 'Malagasy' })
+  @Column({ type: 'varchar', length: 50, nullable: true })
+  nationalite_demandaire: string;
+
+  @ApiProperty({ description: 'Âge du mandataire', example: '23' })
+  @Column({ type: 'varchar', length: 3, nullable: true })
+  age_demandaire: string;
 }

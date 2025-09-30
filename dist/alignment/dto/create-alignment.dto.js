@@ -20,82 +20,126 @@ class CreateAlignmentDto {
     id_cert_sit_jur;
     id_plan_off;
     id_terrain;
+    nom_demandaire;
+    prenom_mandataire;
+    cin_passeport_demandaire;
+    adresse_demandaire;
+    fonction_demandaire;
+    nationalite_demandaire;
+    age_demandaire;
+    raison_social;
+    num_carte_stat;
 }
 exports.CreateAlignmentDto = CreateAlignmentDto;
 __decorate([
-    (0, swagger_1.ApiProperty)({
-        example: 'CIT001',
-        description: 'ID du mandataire (citoyen)',
-        maxLength: 100
-    }),
+    (0, swagger_1.ApiProperty)({ example: 'CIT001', description: 'ID du mandataire (citoyen)', maxLength: 100 }),
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.Length)(1, 100),
     __metadata("design:type", String)
 ], CreateAlignmentDto.prototype, "id_mandataire", void 0);
 __decorate([
-    (0, swagger_1.ApiProperty)({
-        example: 'Propriétaire',
-        description: 'Statut du propriétaire',
-        maxLength: 100
-    }),
+    (0, swagger_1.ApiProperty)({ example: 'Propriétaire', description: 'Statut du propriétaire', maxLength: 100 }),
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.Length)(1, 100),
     __metadata("design:type", String)
 ], CreateAlignmentDto.prototype, "status_proprietaire", void 0);
 __decorate([
-    (0, swagger_1.ApiProperty)({
-        example: 'Demandeur principal',
-        description: 'Qualité du demandeur',
-        maxLength: 100
-    }),
+    (0, swagger_1.ApiProperty)({ example: 'Demandeur principal', description: 'Qualité du demandeur', maxLength: 100 }),
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.Length)(1, 100),
     __metadata("design:type", String)
 ], CreateAlignmentDto.prototype, "qualite_demandeur", void 0);
 __decorate([
-    (0, swagger_1.ApiProperty)({
-        example: '12345678901',
-        description: 'Numéro d\'Identification Fiscale',
-        maxLength: 20
-    }),
+    (0, swagger_1.ApiProperty)({ example: '12345678901', description: 'Numéro d\'Identification Fiscale', maxLength: 20 }),
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.Length)(1, 20),
     __metadata("design:type", String)
 ], CreateAlignmentDto.prototype, "nif", void 0);
 __decorate([
-    (0, swagger_1.ApiProperty)({
-        example: 'CERT001',
-        description: 'ID du certificat de situation juridique',
-        maxLength: 100
-    }),
+    (0, swagger_1.ApiProperty)({ example: 'CERT001', description: 'ID du certificat de situation juridique', maxLength: 100 }),
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.Length)(1, 100),
     __metadata("design:type", String)
 ], CreateAlignmentDto.prototype, "id_cert_sit_jur", void 0);
 __decorate([
-    (0, swagger_1.ApiProperty)({
-        example: 'PLAN001',
-        description: 'ID du plan officiel',
-        maxLength: 100
-    }),
+    (0, swagger_1.ApiProperty)({ example: 'PLAN001', description: 'ID du plan officiel', maxLength: 100 }),
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.Length)(1, 100),
     __metadata("design:type", String)
 ], CreateAlignmentDto.prototype, "id_plan_off", void 0);
 __decorate([
-    (0, swagger_1.ApiProperty)({
-        example: 1,
-        description: 'ID du terrain associé',
-        required: false
-    }),
+    (0, swagger_1.ApiProperty)({ example: 1, description: 'ID du terrain associé', required: false }),
     (0, class_validator_1.IsNumber)(),
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", Number)
 ], CreateAlignmentDto.prototype, "id_terrain", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)({ example: 'Moana', description: 'Nom du mandataire', maxLength: 100, required: false }),
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.Length)(0, 100),
+    __metadata("design:type", String)
+], CreateAlignmentDto.prototype, "nom_demandaire", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)({ example: 'Faly', description: 'Prénom du mandataire', maxLength: 100, required: false }),
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.Length)(0, 100),
+    __metadata("design:type", String)
+], CreateAlignmentDto.prototype, "prenom_mandataire", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)({ example: '101251007007', description: 'CIN ou passeport', maxLength: 100, required: false }),
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.Length)(0, 100),
+    __metadata("design:type", String)
+], CreateAlignmentDto.prototype, "cin_passeport_demandaire", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)({ example: 'Mahasoabe', description: 'Adresse du mandataire', maxLength: 100, required: false }),
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.Length)(0, 100),
+    __metadata("design:type", String)
+], CreateAlignmentDto.prototype, "adresse_demandaire", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)({ example: 'Fonctionnaire', description: 'Fonction du mandataire', maxLength: 100, required: false }),
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.Length)(0, 100),
+    __metadata("design:type", String)
+], CreateAlignmentDto.prototype, "fonction_demandaire", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)({ example: 'Malagasy', description: 'Nationalité du mandataire', maxLength: 50, required: false }),
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.Length)(0, 50),
+    __metadata("design:type", String)
+], CreateAlignmentDto.prototype, "nationalite_demandaire", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)({ example: '23', description: 'Âge du mandataire', maxLength: 3, required: false }),
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.Length)(0, 3),
+    __metadata("design:type", String)
+], CreateAlignmentDto.prototype, "age_demandaire", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)({ example: 'sociologue', description: 'Raison sociale', maxLength: 100, required: false }),
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.Length)(0, 100),
+    __metadata("design:type", String)
+], CreateAlignmentDto.prototype, "raison_social", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)({ example: '123456789', description: 'Numéro de carte statistique', maxLength: 100, required: false }),
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.Length)(0, 100),
+    __metadata("design:type", String)
+], CreateAlignmentDto.prototype, "num_carte_stat", void 0);
 //# sourceMappingURL=create-alignment.dto.js.map

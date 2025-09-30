@@ -13,4 +13,13 @@ export declare class Alignment {
     updated_at: Date;
     pieces_jointes: PieceJointe[];
     terrain: Terrain;
+    raison_social: string;
+    num_carte_stat: string;
+    nom_demandaire: string;
+    prenom_mandataire: string;
+    cin_passeport_demandaire: string;
+    adresse_demandaire: string;
+    fonction_demandaire: string;
+    nationalite_demandaire: string;
+    age_demandaire: string;
 }

@@ -8,7 +8,7 @@ export class Terrain {
   id_terrain: number;
 
   @ApiProperty({ description: 'Numéro du titre foncier', example: 'TIT001' })
-  @Column({ type: 'varchar', length: 100, })
+  @Column({ type: 'varchar', length: 100 })
   num_titre: string;
 
   @ApiProperty({ description: 'Indice du terrain', example: 'IND001', nullable: true })

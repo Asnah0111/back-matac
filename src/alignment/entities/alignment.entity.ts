@@ -13,7 +13,7 @@ export class Alignment {
   @Column({ type: 'varchar', length: 100})
   id_mandataire: string;
 
-  @ApiProperty({ description: 'Statut propriétaire', example: 'Propriétaire' })
+  @ApiProperty({ description: 'Statut propriétaire', example: 'Propriétaire' }) 
   @Column({ type: 'varchar', length: 100})
   status_proprietaire: string;
 
@@ -64,7 +64,7 @@ export class Alignment {
 
   @ApiProperty({ description: 'Nom du mandataire', example: 'Moana' })
   @Column({ type: 'varchar', length: 100 })
-  nom_mandataire: string;
+  nom_demandaire: string;
 
   @ApiProperty({ description: 'Prénom du mandataire', example: 'Faly' })
   @Column({ type: 'varchar', length: 100 })
@@ -72,25 +72,21 @@ export class Alignment {
 
   @ApiProperty({ description: 'CIN ou passeport', example: '101251007007' })
   @Column({ type: 'varchar', length: 100 })
-  cin_passeport: string;
+  cin_passeport_demandaire: string;
 
   @ApiProperty({ description: 'Adresse mandataire', example: 'Mahasoabe' })
   @Column({ type: 'varchar', length: 100, nullable: true })
-  adresse: string;
+  adresse_demandaire: string;
 
   @ApiProperty({ description: 'Fonction du mandataire', example: 'Fonctionnaire' })
   @Column({ type: 'varchar', length: 100, nullable: true })
-  fonction: string;
-
-  @ApiProperty({ description: 'Âge du mandataire', example: '23' })
-  @Column({ type: 'varchar', length: 3, nullable: true })
-  age: string;
+  fonction_demandaire: string;
 
   @ApiProperty({ description: 'Nationalité du mandataire', example: 'Malagasy' })
   @Column({ type: 'varchar', length: 50, nullable: true })
-  nationalite: string;
+  nationalite_demandaire: string;
 
-   @ApiProperty({ description: 'Status alignement', example: 'Malagasy' })
-  @Column({ type: 'varchar', length: 50, nullable: true })
-  status: string;
+  @ApiProperty({ description: 'Âge du mandataire', example: '23' })
+  @Column({ type: 'varchar', length: 3, nullable: true })
+  age_demandaire: string;
 }

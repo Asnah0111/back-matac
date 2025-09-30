@@ -15,12 +15,11 @@ export declare class Alignment {
     terrain: Terrain;
     raison_social: string;
     num_carte_stat: string;
-    nom_mandataire: string;
+    nom_demandaire: string;
     prenom_mandataire: string;
-    cin_passeport: string;
-    adresse: string;
-    fonction: string;
-    age: string;
-    nationalite: string;
-    status: string;
+    cin_passeport_demandaire: string;
+    adresse_demandaire: string;
+    fonction_demandaire: string;
+    nationalite_demandaire: string;
+    age_demandaire: string;
 }

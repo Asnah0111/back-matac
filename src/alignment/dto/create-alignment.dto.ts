@@ -1,83 +1,100 @@
+import { IsString, IsNotEmpty, Length, IsNumber, IsOptional } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
-import { IsString, IsOptional, IsInt } from 'class-validator';
 
 export class CreateAlignmentDto {
-  @ApiProperty({ description: 'ID du mandataire (citoyen)', example: 'CIT001' })
+  @ApiProperty({ example: 'CIT001', description: 'ID du mandataire (citoyen)', maxLength: 100 })
   @IsString()
+  @IsNotEmpty()
+  @Length(1, 100)
   id_mandataire: string;
 
-  @ApiProperty({ description: 'Statut propriétaire', example: 'Propriétaire' })
+  @ApiProperty({ example: 'Propriétaire', description: 'Statut du propriétaire', maxLength: 100 })
   @IsString()
+  @IsNotEmpty()
+  @Length(1, 100)
   status_proprietaire: string;
 
-  @ApiProperty({ description: 'Qualité du demandeur', example: 'Demandeur principal' })
+  @ApiProperty({ example: 'Demandeur principal', description: 'Qualité du demandeur', maxLength: 100 })
   @IsString()
+  @IsNotEmpty()
+  @Length(1, 100)
   qualite_demandeur: string;
 
-  @ApiProperty({ description: 'NIF (fiscal)', example: '12345678901' })
+  @ApiProperty({ example: '12345678901', description: 'Numéro d\'Identification Fiscale', maxLength: 20 })
   @IsString()
+  @IsNotEmpty()
+  @Length(1, 20)
   nif: string;
 
-  @ApiProperty({ description: 'ID du certificat de situation juridique', example: 'CERT001' })
+  @ApiProperty({ example: 'CERT001', description: 'ID du certificat de situation juridique', maxLength: 100 })
   @IsString()
+  @IsNotEmpty()
+  @Length(1, 100)
   id_cert_sit_jur: string;
 
-  @ApiProperty({ description: 'ID du plan officiel', example: 'PLAN001' })
+  @ApiProperty({ example: 'PLAN001', description: 'ID du plan officiel', maxLength: 100 })
   @IsString()
+  @IsNotEmpty()
+  @Length(1, 100)
   id_plan_off: string;
 
-  @ApiProperty({ description: 'ID du terrain associé', example: 1, required: false })
+  @ApiProperty({ example: 1, description: 'ID du terrain associé', required: false })
+  @IsNumber()
   @IsOptional()
-  @IsInt()
   id_terrain?: number;
 
-  @ApiProperty({ description: 'Nom du mandataire', example: 'Moana', required: false })
-  @IsOptional()
+  // Champs supplémentaires
+  @ApiProperty({ example: 'Moana', description: 'Nom du mandataire', maxLength: 100, required: false })
   @IsString()
-  nom_mandataire?: string;
+  @IsOptional()
+  @Length(0, 100)
+  nom_demandaire?: string;
 
-  @ApiProperty({ description: 'Prénom du mandataire', example: 'Faly', required: false })
-  @IsOptional()
+  @ApiProperty({ example: 'Faly', description: 'Prénom du mandataire', maxLength: 100, required: false })
   @IsString()
+  @IsOptional()
+  @Length(0, 100)
   prenom_mandataire?: string;
 
-  @ApiProperty({ description: 'CIN ou passeport', example: '101251007007', required: false })
-  @IsOptional()
+  @ApiProperty({ example: '101251007007', description: 'CIN ou passeport', maxLength: 100, required: false })
   @IsString()
-  cin_passeport?: string;
+  @IsOptional()
+  @Length(0, 100)
+  cin_passeport_demandaire?: string;
 
-  @ApiProperty({ description: 'Raison sociale', example: 'Sociologue', required: false })
-  @IsOptional()
+  @ApiProperty({ example: 'Mahasoabe', description: 'Adresse du mandataire', maxLength: 100, required: false })
   @IsString()
+  @IsOptional()
+  @Length(0, 100)
+  adresse_demandaire?: string;
+
+  @ApiProperty({ example: 'Fonctionnaire', description: 'Fonction du mandataire', maxLength: 100, required: false })
+  @IsString()
+  @IsOptional()
+  @Length(0, 100)
+  fonction_demandaire?: string;
+
+  @ApiProperty({ example: 'Malagasy', description: 'Nationalité du mandataire', maxLength: 50, required: false })
+  @IsString()
+  @IsOptional()
+  @Length(0, 50)
+  nationalite_demandaire?: string;
+
+  @ApiProperty({ example: '23', description: 'Âge du mandataire', maxLength: 3, required: false })
+  @IsString()
+  @IsOptional()
+  @Length(0, 3)
+  age_demandaire?: string;
+
+  @ApiProperty({ example: 'sociologue', description: 'Raison sociale', maxLength: 100, required: false })
+  @IsString()
+  @IsOptional()
+  @Length(0, 100)
   raison_social?: string;
 
-  @ApiProperty({ description: 'Numéro de carte statistique', example: '123456789', required: false })
-  @IsOptional()
+  @ApiProperty({ example: '123456789', description: 'Numéro de carte statistique', maxLength: 100, required: false })
   @IsString()
+  @IsOptional()
+  @Length(0, 100)
   num_carte_stat?: string;
-
-  @ApiProperty({ description: 'Adresse mandataire', example: 'Mahasoabe', required: false })
-  @IsOptional()
-  @IsString()
-  adresse?: string;
-
-  @ApiProperty({ description: 'Fonction du mandataire', example: 'Fonctionnaire', required: false })
-  @IsOptional()
-  @IsString()
-  fonction?: string;
-
-  @ApiProperty({ description: 'Âge du mandataire', example: '23', required: false })
-  @IsOptional()
-  @IsString()
-  age?: string;
-
-  @ApiProperty({ description: 'Nationalité du mandataire', example: 'Malagasy', required: false })
-  @IsOptional()
-  @IsString()
-  nationalite?: string;
-
-  @ApiProperty({ description: 'Status alignement', example: 'En attente', required: false })
-  @IsOptional()
-  @IsString()
-  status?: string;
 }
